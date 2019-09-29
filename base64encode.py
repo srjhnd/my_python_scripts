@@ -4,10 +4,10 @@ base64code = [chr(i) for i in  range(65,91)] + [chr(i) for i in range(97,123)] +
 def base64enc(txt):
     txt_enc = []
     txt_bin = []
-    
+
     for i in range(len(txt)):
         txt_bin += bin(ord(txt[i]))[2:].zfill(8)
-        
+
     if len(txt_bin) == 16:
         txt_bin += bin(0)[2:].zfill(8)
     elif len(txt_bin) == 8:
@@ -29,13 +29,15 @@ def base64(txt):
     return txt_enc
 
 
+def main():
+    input_txt = raw_input()
+    encoded_txt = base64(input_txt)
+    print(''.join(str(v) for v in encoded_txt))
 
-input_txt = raw_input()
-print "you entered: "+input_txt
-encoded_txt = base64(input_txt)
-print ''.join(str(v) for v in encoded_txt)
+if (__name__ == "__main__"):
+    main()
+
+
 
 #decoded_txt = base64dec(encoded_txt)
 #print "decoded text: "+decoded_txt
-
-
